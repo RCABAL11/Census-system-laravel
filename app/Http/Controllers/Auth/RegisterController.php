@@ -18,7 +18,11 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        
+        dd($user->id,
+        $user->name,
+        $user->email,
+        $user->password,
+);
 
         return response()->json(['message' => 'User registered successfully', 'user' => $user], 201);
     }
