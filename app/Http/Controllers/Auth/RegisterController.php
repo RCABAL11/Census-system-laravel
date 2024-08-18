@@ -18,12 +18,15 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        dd($user->id,
-        $user->name,
-        $user->email,
-        $user->password,
-);
-
-        return response()->json(['message' => 'User registered successfully', 'user' => $user], 201);
+        return response()->json([
+            'message' => 'User registered successfully',
+            'user' => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'created_at' => $user->created_at->toDateTimeString(),
+                'updated_at' => $user->updated_at->toDateTimeString(),
+            ]
+        ], 201);
     }
 }
