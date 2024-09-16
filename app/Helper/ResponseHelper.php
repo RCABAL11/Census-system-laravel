@@ -16,7 +16,7 @@ class ResponseHelper
         ], $statusCode);
     }
 
-    public static function errors($status = 'error', $message = NULL, $statusCode = 400)
+    public static function error($status = 'error', $message = NULL, $statusCode = 400)
     {
         return response()->json([
             'status' => $status,
